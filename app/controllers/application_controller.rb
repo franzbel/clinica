@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
   	# Prevent CSRF attacks by raising an exception.
   	# For APIs, you may want to use :null_session instead.
-  	protect_from_forgery with: :exception
-
+  	protect_from_forgery with: :null_session
 	protected 
     #Retorna el usuario que ha iniciado sesion, nil si no hay ninguno
     #Debido a que devuelve un objeto de User, puede llamar a los métodos de instancia de User, como 

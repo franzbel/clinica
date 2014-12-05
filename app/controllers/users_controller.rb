@@ -19,6 +19,9 @@ class UsersController < ApplicationController
   	def edit
   		@user = current_user
 
+      nuevo_valor=@user.sessions_number + 1
+      @user.update_attribute(:sessions_number,  nuevo_valor)
+      
   	end
  
 	def update
