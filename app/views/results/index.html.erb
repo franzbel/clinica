@@ -1,0 +1,27 @@
+<h1>Resultados de todos tus analisis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo de analisis |</th>
+      <th> Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @results.each do |result| %>
+      <tr>
+        <td><%= result.analysis %></td>
+        <td><%= result.user_id %></td>
+        <td><%= link_to 'Show', result %></td>
+        <td><%= link_to 'Edit', edit_result_path(result) %></td>
+        <td><%= link_to 'Destroy', result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!--<%= link_to 'New Result', new_result_path %>-->

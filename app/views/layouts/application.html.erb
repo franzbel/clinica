@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sesion</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div id="header">
+		
+		<div id="user_bar">
+			<% if logged_in? %>
+			Usted ha iniciado sesion como: <%= current_user.email%>
+			
+			<%= link_to "Edit Password", edit_user_path(current_user) %> |
+			<%= link_to "Logout", logout_path %>
+			<% else %>
+			<%= link_to "Login", login_path %>
+			<% end %>
+		</div>
+	</div>
+	
+	<div id="main">
+		<%= content_tag(:p, notice, class: 'notice') if notice.present? %>
+		<%= content_tag(:p, alert, class: 'alert') if alert.present? %>
+		<%= yield %>
+	</div>
+	
+	<div id="footer">
+		Clinica de analisis
+	</div>
+
+
+</body>
+</html>
